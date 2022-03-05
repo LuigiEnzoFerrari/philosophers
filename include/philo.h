@@ -6,6 +6,7 @@
 # include <stdio.h>
 # include <sys/time.h>
 # include <pthread.h>
+# include <string.h>
 
 struct	s_fork {
     int     data;
@@ -19,6 +20,7 @@ struct s_philosopher {
 	int		sleep;
 	int		think;
 	int		eattt;
+    char    *name;
 	t_fork	*forks;
 };
 typedef struct s_philosopher	t_philo;
