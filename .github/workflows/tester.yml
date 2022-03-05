@@ -8,6 +8,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: make
-    run: make -C tests/
+      run: make -C tests/
     - name: run-tester
-    run: bash ./tests/test
+      run:  bash ./tests/test
