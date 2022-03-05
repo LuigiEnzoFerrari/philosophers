@@ -19,12 +19,11 @@ struct s_philosopher {
 	int		sleep;
 	int		think;
 	int		eattt;
-	t_fork	*table;
+	t_fork	*forks;
 };
 typedef struct s_philosopher	t_philo;
 
 t_fork  *init_fork(void);
 void    add_forks(t_fork **forke, size_t n);
-
 
 #endif
