@@ -8,24 +8,27 @@
 # include <pthread.h>
 # include <string.h>
 
-struct	s_fork {
-    int     data;
-	pthread_mutex_t	mutex;
-	struct s_fork	*next;
-	struct s_fork	*prev;
-};
-typedef struct s_fork	t_fork;
+typedef pthread_t		philo_id;
+typedef pthread_mutex_t pfork;
 
-struct s_philosopher {
-	int		sleep;
-	int		think;
-	int		eattt;
-    char    *name;
-	t_fork	*forks;
-};
-typedef struct s_philosopher	t_philo;
+/*
+** index of the actions of each filosopher
+*/
 
-t_fork  *init_fork(void);
-void    add_forks(t_fork **forke, size_t n);
+#define SLEEP 0
+#define EATTT 1
+#define THINK 2
+
+typedef struct	s_seats {
+	int				id; //temp just to know which pthread
+	int				act[3];
+	pfork			pfork;
+	philo_id		philo;
+	struct	s_seats	*right; // next
+	struct	s_seats	*left; // prev // It's possible that I won't need this one.
+}	t_seats;
+
+t_seats	*init_seat(void);
+void	add_seat_left(t_seats **seat);
 
 #endif

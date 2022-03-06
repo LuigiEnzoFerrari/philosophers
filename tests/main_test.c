@@ -1,96 +1,104 @@
 #include "minunit.h"
 #include "philo.h"
 
-MU_TEST(test_number_of_forks_zero) {
-	t_fork *forks = NULL;
-	int  how_many = 0;
-	add_forks(&forks, 0);
-	if (forks != NULL)
+MU_TEST(test_number_of_seats_zero) {
+	t_seats	*seats = NULL;
+	int	how_many = 0;
+	int	expected = 0;
+	while (expected--)
+		add_seat_left(&seats);
+	if (seats != NULL)
 	{
-		t_fork *ptr = forks;
+		t_seats *ptr = seats;
 		do{
 			how_many++;
-			forks = forks->next;
+			seats = seats->right;
 		}
-		while (forks != ptr);
+		while (seats != ptr);
 	}
 	mu_assert(how_many == 0, "expected 0");
 }
 
-
-MU_TEST(test_number_of_forks_one) {
-	t_fork *forks = NULL;
-	int  how_many = 0;
-	add_forks(&forks, 1);
-	if (forks != NULL)
+MU_TEST(test_number_of_seats_one) {
+	t_seats *seats = NULL;
+	int	how_many = 0;
+	int	expected = 1;
+	while (expected--)
+		add_seat_left(&seats);
+	if (seats != NULL)
 	{
-		t_fork *ptr = forks;
+		t_seats *ptr = seats;
 		do{
 			how_many++;
-			forks = forks->next;
+			seats = seats->right;
 		}
-		while (forks != ptr);
+		while (seats != ptr);
 	}
 	mu_assert(how_many == 1, "expected 1");
 }
 
-MU_TEST(test_number_of_forks_two) {
-	t_fork *forks = NULL;
-	int  how_many = 0;
-	add_forks(&forks, 2);
-	if (forks != NULL)
+MU_TEST(test_number_of_seats_two) {
+	t_seats *seats = NULL;
+	int	how_many = 0;
+	int	expected = 2;
+	while (expected--)
+		add_seat_left(&seats);
+	if (seats != NULL)
 	{
-		t_fork *ptr = forks;
+		t_seats *ptr = seats;
 		do{
 			how_many++;
-			forks = forks->next;
+			seats = seats->right;
 		}
-		while (forks != ptr);
+		while (seats != ptr);
 	}
 	mu_assert(how_many == 2, "expected 2");
 }
 
-MU_TEST(test_number_of_forks_five) {
-	t_fork *forks = NULL;
-	int  how_many = 0;
-	add_forks(&forks, 5);
-	if (forks != NULL)
+MU_TEST(test_number_of_seats_five) {
+	t_seats *seats = NULL;
+	int	how_many = 0;
+	int	expected = 5;
+	while (expected--)
+		add_seat_left(&seats);
+	if (seats != NULL)
 	{
-		t_fork *ptr = forks;
+		t_seats *ptr = seats;
 		do{
 			how_many++;
-			forks = forks->next;
+			seats = seats->right;
 		}
-		while (forks != ptr);
+		while (seats != ptr);
 	}
 	mu_assert(how_many == 5, "expected 5");
 }
 
-MU_TEST(test_number_of_forks_ten) {
-	t_fork *forks = NULL;
-	int  how_many = 0;
-	add_forks(&forks, 10);
-	if (forks != NULL)
+MU_TEST(test_number_of_seats_ten) {
+	t_seats *seats = NULL;
+	int	how_many = 0;
+	int	expected = 10;
+	while (expected--)
+		add_seat_left(&seats);
+	if (seats != NULL)
 	{
-		t_fork *ptr = forks;
+		t_seats *ptr = seats;
 		do{
 			how_many++;
-			forks = forks->next;
+			seats = seats->right;
 		}
-		while (forks != ptr);
+		while (seats != ptr);
 	}
 	mu_assert(how_many == 10, "expected 10");
 }
 
 MU_TEST_SUITE(test_suite) {
 	// MU_SUITE_CONFIGURE(&test_setup, &test_teardown);
-	MU_RUN_TEST(test_number_of_forks_zero);
-	MU_RUN_TEST(test_number_of_forks_one);
-	MU_RUN_TEST(test_number_of_forks_two);
-	MU_RUN_TEST(test_number_of_forks_five);
-	MU_RUN_TEST(test_number_of_forks_ten);
+	MU_RUN_TEST(test_number_of_seats_zero);
+	MU_RUN_TEST(test_number_of_seats_one);
+	MU_RUN_TEST(test_number_of_seats_two);
+	MU_RUN_TEST(test_number_of_seats_five);
+	MU_RUN_TEST(test_number_of_seats_ten);
 }
-
 
 int main (int argc, char **argv)
 {

@@ -1,37 +1,28 @@
 #include "philo.h"
 
-t_fork	*init_fork(void)
+t_seats	*init_seat(void)
 {
-	t_fork	*forke;
+	t_seats	*seat;
 
-	forke = malloc(sizeof(t_fork));
-	forke->next = forke;
-	forke->prev = forke;
-	return (forke);
+	seat = malloc(sizeof(t_seats));
+    memset((void *)seat, 0, sizeof(t_seats));
+	seat->right = seat;
+	seat->left = seat;
+	return (seat);
 }
 
-void    add_forks(t_fork **forke, size_t n)
+void    add_seat_left(t_seats **seat)
 {
-	t_fork	*new;
-    size_t  i;
+	t_seats	*new;
 
-	if (n == 0)
-		return ;
-        i = 0;
-	if (*forke == NULL)
-	{
-		*forke = init_fork();
-		(*forke)->data = i;
-		i++;
-	}
-	while (n > i)
-	{
-		new = init_fork();
-		new->data = i;
-		new->next = (*forke);
-		new->prev = (*forke)->prev;
-		(*forke)->prev->next = new;
-		(*forke)->prev = new;
-		i++;
-	}
+	if (*seat == NULL)
+    {
+		*seat = init_seat();
+        return ;
+    }
+    new = init_seat();
+    new->right = (*seat);
+    new->left = (*seat)->left;
+    (*seat)->left->right = new;
+    (*seat)->left = new;
 }

@@ -1,4 +1,5 @@
 # Philosophers  
+![tests](https://github.com/LuigiEnzoFerrari/philosophers/actions/workflows/tester.yml/badge.svg)  
 
 I never thought philosophy would be so deadly
 
