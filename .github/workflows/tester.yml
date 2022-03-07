@@ -1,4 +1,4 @@
-name: tester
+name: tests
 
 on: push
 
@@ -9,5 +9,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: make
       run: make -C tests/
-    - name: run-tester
-      run: ./tests/test
+    - name: test list
+      run: ./tests/test_list
+    - name: test-list
+      run: ./tests/test_time

@@ -7,9 +7,11 @@
 # include <sys/time.h>
 # include <pthread.h>
 # include <string.h>
+# include <stdint.h>
 
 typedef pthread_t		philo_id;
 typedef pthread_mutex_t pfork;
+typedef struct timeval timeval;
 
 /*
 ** index of the actions of each filosopher
@@ -18,10 +20,13 @@ typedef pthread_mutex_t pfork;
 #define SLEEP 0
 #define EATTT 1
 #define THINK 2
+#define DYING 3
 
 typedef struct	s_seats {
 	int				id; //temp just to know which pthread
-	int				act[3];
+    int             num;
+    int             *status;
+	uint64_t		act[4];
 	pfork			pfork;
 	philo_id		philo;
 	struct	s_seats	*right; // next
@@ -30,5 +35,10 @@ typedef struct	s_seats {
 
 t_seats	*init_seat(void);
 void	add_seat_left(t_seats **seat);
+
+uint64_t milli_to_micro(uint64_t milliseconds);
+uint64_t micro_to_milli(uint64_t microseconds);
+uint64_t micro_to_seconds(uint64_t microseconds);
+uint64_t   difference(timeval start, timeval end);
 
 #endif

@@ -100,7 +100,7 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_number_of_seats_ten);
 }
 
-int main (int argc, char **argv)
+int main (void)
 {
 	MU_RUN_SUITE(test_suite);
 	MU_REPORT();

@@ -1,10 +1,10 @@
-// #include "philo.h"
+#include "philo.h"
 
-// void    index_philos(t_philo *philos)
-// {
-//     size_t  i;
+void    index_seats(t_seats *seat)
+{
+    size_t  i;
 
-//     i = 0;
-//     while (philos[i].forks != NULL)
-//     ;
-// }
+    i = 0;
+    while (seat != NULL)
+    ;
+}

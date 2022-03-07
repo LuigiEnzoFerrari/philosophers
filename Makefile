@@ -1,6 +1,6 @@
 NAME=philo
 
-SRCS=srcs/list.c
+SRCS=srcs/list.c srcs/convert_time.c
 
 all: $(NAME)
 
