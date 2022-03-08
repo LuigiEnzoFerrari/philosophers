@@ -17,15 +17,19 @@ typedef struct timeval timeval;
 ** index of the actions of each filosopher
 */
 
-#define SLEEP 0
-#define EATTT 1
-#define THINK 2
-#define DYING 3
+# define LIMIT 0
+# define EATEN 1
+
+# define SLEEP 0
+# define EATTT 1
+# define THINK 2
+# define DYING 3
 
 typedef struct	s_seats {
 	int				id; //temp just to know which pthread
-    int             num;
-    int             *status;
+	size_t          eat[2];
+	int             *status;
+    timeval         ctime;
 	uint64_t		act[4];
 	pfork			pfork;
 	philo_id		philo;
@@ -36,9 +40,10 @@ typedef struct	s_seats {
 t_seats	*init_seat(void);
 void	add_seat_left(t_seats **seat);
 
-uint64_t milli_to_micro(uint64_t milliseconds);
-uint64_t micro_to_milli(uint64_t microseconds);
-uint64_t micro_to_seconds(uint64_t microseconds);
-uint64_t   difference(timeval start, timeval end);
+uint64_t	milli_to_micro(uint64_t milliseconds);
+uint64_t	micro_to_milli(uint64_t microseconds);
+uint64_t	micro_to_seconds(uint64_t microseconds);
+uint64_t	difference(timeval start, timeval end);
+uint64_t    timeval_to_micro(timeval current_time);
 
 #endif

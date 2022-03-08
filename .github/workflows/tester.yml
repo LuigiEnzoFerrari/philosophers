@@ -11,5 +11,5 @@ jobs:
       run: make -C tests/
     - name: test list
       run: ./tests/test_list
-    - name: test-list
+    - name: time conversion
       run: ./tests/test_time
