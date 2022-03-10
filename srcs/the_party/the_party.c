@@ -6,13 +6,13 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:33:13 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 01:36:09 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 02:38:13 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	partying(t_seats *seats, timeval *points)
+void	partying(t_seats *seats, t_timeval *points)
 {
 	uint64_t	waited;
 
@@ -33,10 +33,10 @@ void	partying(t_seats *seats, timeval *points)
 
 void	*the_party(void *arg)
 {
-	t_seats	*seats;
-	timeval	points[2];
+	t_seats		*seats;
+	t_timeval	points[2];
 
-	memset(&points[LAST_EAT], 0, sizeof(timeval));
+	memset(&points[LAST_EAT], 0, sizeof(t_timeval));
 	seats = (t_seats *)arg;
 	partying(seats, points);
 	return (NULL);

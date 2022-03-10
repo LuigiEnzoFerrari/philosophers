@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:33:25 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 01:34:36 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 02:36:51 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	someone_die(t_seats *seats)
 	return (0);
 }
 
-uint64_t	time_hungry(t_seats *seats, timeval *points)
+uint64_t	time_hungry(t_seats *seats, t_timeval *points)
 {
 	uint64_t	hungry;
 
@@ -33,7 +33,7 @@ uint64_t	time_hungry(t_seats *seats, timeval *points)
 	return (hungry);
 }
 
-static int	that_was_enough(t_seats *seats, timeval *points)
+static int	that_was_enough(t_seats *seats, t_timeval *points)
 {
 	if (seats->eat[EATEN] == seats->eat[LIMIT])
 	{
@@ -43,7 +43,7 @@ static int	that_was_enough(t_seats *seats, timeval *points)
 	return (0);
 }
 
-int	died_of_hungry(t_seats *seats, timeval *points, uint64_t waited)
+int	died_of_hungry(t_seats *seats, t_timeval *points, uint64_t waited)
 {
 	if (someone_die(seats))
 		return (1);
@@ -59,7 +59,7 @@ int	died_of_hungry(t_seats *seats, timeval *points, uint64_t waited)
 	return (0);
 }
 
-int	eating_time(t_seats *seats, timeval *points)
+int	eating_time(t_seats *seats, t_timeval *points)
 {
 	printf(" %6lu \t%-15d is eating\n",
 		micro_to_milli(difference(seats->rules->the_time,

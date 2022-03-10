@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:37:58 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 01:40:11 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 02:36:41 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	one_fork_for_each_guest(t_seats *seats)
 	ptr = seats;
 	while (42)
 	{
-		pthread_mutex_init(&ptr->pfork, NULL);
+		pthread_mutex_init(&ptr->t_pfork, NULL);
 		ptr = ptr->right;
 		if (ptr == seats)
 			break ;

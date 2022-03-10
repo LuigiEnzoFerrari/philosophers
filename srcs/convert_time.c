@@ -6,13 +6,13 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:33:08 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 01:40:48 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 02:36:51 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-uint64_t	timeval_to_micro(timeval current_time)
+uint64_t	t_timeval_to_micro(t_timeval current_time)
 {
 	return ((current_time.tv_sec * 1000000 + current_time.tv_usec));
 }
@@ -32,8 +32,8 @@ uint64_t	micro_to_seconds(uint64_t microseconds)
 	return (microseconds * 0.000001);
 }
 
-uint64_t	difference(timeval start, timeval end)
+uint64_t	difference(t_timeval start, t_timeval end)
 {
-	return (timeval_to_micro(end)
-		- timeval_to_micro(start));
+	return (t_timeval_to_micro(end)
+		- t_timeval_to_micro(start));
 }
