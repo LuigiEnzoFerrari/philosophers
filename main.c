@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:41:21 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 04:19:09 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 11:26:43 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	clean_the_dirty_dishes(t_seats *seats)
 
 	ptr = seats;
 	free(ptr->status);
+	free(ptr->rules);
 	while (42)
 	{
 		pthread_mutex_destroy(&seats->t_pfork);
@@ -39,6 +40,7 @@ void	clean_the_dirty_dishes(t_seats *seats)
 		if (seats == ptr)
 			break ;
 	}
+	clear_seats(seats);
 }
 
 int	main(int argc, char **argv)

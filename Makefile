@@ -3,16 +3,16 @@ NAME=philo
 PARTY=eat_or_die.c take_a_nap.c the_party.c take_forks.c
 PATH_PARTY= $(addprefix srcs/the_party/, $(PARTY))
 
-PREPARE=list.c convert_time.c prepare_party.c atoi.c you_should_not_pass.c
+PREPARE=list.c convert_time.c prepare_party.c utils.c you_should_not_pass.c
 PREPARE_PATH=$(addprefix srcs/, $(PREPARE))
 
 SRCS=$(PREPARE_PATH) $(PATH_PARTY)
-SANIT = -fsanitize=address 
+SANIT = -g -fsanitize=address 
 
 all: $(NAME)
 
 $(NAME): main.c $(SRCS)
-	clang -g main.c $(SRCS) -lpthread -I include/ -o $@
+	clang $(SANIT) main.c $(SRCS) -lpthread -I include/ -o $@
 
 run:
 	bash philo

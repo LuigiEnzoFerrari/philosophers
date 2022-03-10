@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:37:58 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 03:34:11 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 05:39:27 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ void	rules_of_the_party(t_seats *seats, char **argv)
 
 	rules = malloc(sizeof(t_rules));
 	gettimeofday(&rules->the_time, NULL);
-	rules->act[DYING] = milli_to_micro(my_strtoul(*(argv + 1)));
-	rules->act[EATTT] = milli_to_micro(my_strtoul(*(argv + 2)));
-	rules->act[SLEEP] = milli_to_micro(my_strtoul(*(argv + 3)));
+	rules->act[DYING] = milli_to_micro(my_abs(my_strtoul(*(argv + 1))));
+	rules->act[EATTT] = milli_to_micro(my_abs(my_strtoul(*(argv + 2))));
+	rules->act[SLEEP] = milli_to_micro(my_abs(my_strtoul(*(argv + 3))));
 	ptr = seats;
 	while (42)
 	{

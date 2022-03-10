@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 03:49:50 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 04:19:40 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 11:26:12 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ int	you_should_not_pass(int argc, char **argv)
 			"[number of times_each philosopher must eat]");
 		return (1);
 	}
+	else if (my_strtoul(*argv) == 0)
+		return (1);
 	return (0);
 }

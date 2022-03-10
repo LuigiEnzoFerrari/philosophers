@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 02:33:14 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 04:19:52 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 11:25:48 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct timeval	t_timeval;
 ** index of the actions of each filosopher
 */
 
-# define DIED "\e\001\003[0;91m\002 %6lu \t%-15d IS DIED\n"
+# define DIED "\e\001\003[0;91m\002 %6lu \t%-15d is died\n"
 # define EATING "\e\001\003[0;93m\002 %6lu \t%-15d is eating\n"
 # define SLEEPING "\e\001\003[0;94m\002 %6lu \t%-15d is sleeping\n"
 # define THINKING "\e\001\003[0;95m\002 %6lu \t%-15d is thiking\n"
@@ -65,10 +65,12 @@ typedef struct s_seats
 }	t_seats;
 
 uint64_t	my_strtoul(const char *nptr);
+uint64_t	my_abs(int64_t n);
 
 int			you_should_not_pass(int argc, char **argv);
 t_seats		*init_seat(void);
 void		add_seat_left(t_seats **seat);
+void		clear_seats(t_seats *seats);
 
 uint64_t	milli_to_micro(uint64_t milliseconds);
 uint64_t	micro_to_milli(uint64_t microseconds);
