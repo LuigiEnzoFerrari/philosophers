@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 02:33:14 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 03:34:50 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 04:19:52 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_seats
 
 uint64_t	my_strtoul(const char *nptr);
 
+int			you_should_not_pass(int argc, char **argv);
 t_seats		*init_seat(void);
 void		add_seat_left(t_seats **seat);
 

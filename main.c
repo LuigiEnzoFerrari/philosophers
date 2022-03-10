@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:41:21 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 03:33:47 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 04:19:09 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	main(int argc, char **argv)
 {
 	t_seats	*seats;
 
-	if (argc > 6 || argc < 5)
-		return (write(STDERR_FILENO, "misssing a argument\n", 20));
+	if (you_should_not_pass(argc, argv + 1))
+		return (EXIT_FAILURE);
 	seats = NULL;
 	one_seat_for_each_guest(&seats, my_strtoul(*(argv + 1)));
 	one_fork_for_each_guest(seats);
