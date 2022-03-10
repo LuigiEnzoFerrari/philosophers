@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:33:17 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 18:34:33 by coder            ###   ########.fr       */
+/*   Updated: 2022/03/10 20:29:10 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ int	take_the_first_fork(t_seats *seats, t_timeval *points)
 {
 	pthread_mutex_lock(&seats->t_pfork);
 	gettimeofday(&points[BREAK], NULL);
+	if (*seats->status == 0)
+	{
+		pthread_mutex_unlock(&seats->t_pfork);
+		return (1);
+	}
 	printf(FORKING,
 		micro_to_milli(difference(seats->rules->the_time,
 				points[BREAK])), seats->id);

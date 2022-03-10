@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   take_a_nap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:33:22 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 03:19:08 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 20:31:43 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@ int	sleeping_and_thinking(t_seats *seats, t_timeval *points)
 	printf(THINKING,
 		micro_to_milli(difference(seats->rules->the_time,
 				points[BREAK])), seats->id);
+	if (*seats->status == 0)
+		return (1);
 	return (0);
 }

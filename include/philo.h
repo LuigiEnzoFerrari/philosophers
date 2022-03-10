@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 02:33:14 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 16:15:20 by coder            ###   ########.fr       */
+/*   Updated: 2022/03/10 21:20:14 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ typedef struct timeval	t_timeval;
 ** index of the actions of each filosopher
 */
 
-# define DIED "\e\001\003[0;91m\002 %6lu \t%-15d is died\001\033[0m\002\n"
-# define EATING "\e\001\003[0;93m\002 %6lu \t%-15d is eating\001\033[0m\002\n"
-# define SLEEPING "\e\001\003[0;94m\002 %6lu \t%-15d is sleeping\001\033[0m\002\n"
-# define THINKING "\e\001\003[0;95m\002 %6lu \t%-15d is thiking\001\033[0m\002\n"
-# define FORKING "\e\001\003[0;97m\002 %6lu \t%-15d has taken a fork\001\033[0m\002\n"
+# define DIED "\e\001\003[0;91m\002  %6lu   %-3d is died\001\033[0m\002\n"
+# define EATING "\e\001\003[0;93m\002  %6lu   %-3d is eating\001\033[0m\002\n"
+# define SLEEPING "\e\001\003[0;94m\002  %6lu   %-3d is sleeping\001\033[0m\002\n"
+# define THINKING "\e\001\003[0;95m\002  %6lu   %-3d is thiking\001\033[0m\002\n"
+# define FORKING "\e\001\003[0;97m\002  %6lu   %-3d has taken a fork\001\033[0m\002\n"
 
 # define LIMIT 0
 # define EATEN 1
@@ -91,8 +91,8 @@ int			take_the_first_fork(t_seats *seats, t_timeval *points);
 int			take_the_second_fork(t_seats *seats, t_timeval *points);
 int			died_of_hungry(t_seats *seats, t_timeval *points, uint64_t waited);
 void		release_the_forks(t_seats *seats);
-int			eating_time(t_seats *seats, t_timeval *points);
-uint64_t	time_hungry(t_seats *seats, t_timeval *points);
+int			eating_time(t_seats *seats, t_timeval *points, uint64_t waited);
+uint64_t	time_hungry(t_timeval *points);
 
 int			sleeping_and_thinking(t_seats *seats, t_timeval *points);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prepare_party.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:37:58 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 05:39:27 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 20:42:27 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	guests_profile(t_seats *seats, char **argv)
 	int		*status;
 	t_seats	*ptr;
 
-	id = 0;
+	id = 1;
 	status = malloc(sizeof(int));
 	*status = 1;
 	ptr = seats;
