@@ -1,4 +1,4 @@
-name: tests
+name: CI Tests
 
 on: push
 
@@ -15,3 +15,5 @@ jobs:
       run: ./tests/test_list
     - name: time conversion
       run: ./tests/test_time
+    - name: test utils
+      run: ./tests/test_utils      
