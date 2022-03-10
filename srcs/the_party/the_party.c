@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   the_party.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:33:13 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 02:38:13 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 17:26:31 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	partying(t_seats *seats, t_timeval *points)
 {
 	uint64_t	waited;
 
+	gettimeofday(&points[LAST_EAT], NULL);
 	while (42)
 	{
 		if (take_the_forks(seats, points))
@@ -36,7 +37,6 @@ void	*the_party(void *arg)
 	t_seats		*seats;
 	t_timeval	points[2];
 
-	memset(&points[LAST_EAT], 0, sizeof(t_timeval));
 	seats = (t_seats *)arg;
 	partying(seats, points);
 	return (NULL);
@@ -49,7 +49,7 @@ void	everyone_lets_party(t_seats *seats)
 	ptr = seats;
 	while (42)
 	{
-		usleep(5);
+		usleep(50);
 		pthread_create(&seats->philo, NULL, &the_party, seats);
 		seats = seats->right;
 		if (seats == ptr)

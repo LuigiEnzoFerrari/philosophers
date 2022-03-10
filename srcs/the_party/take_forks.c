@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   take_forks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:33:17 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 03:19:49 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 18:34:33 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,23 @@ int	take_the_first_fork(t_seats *seats, t_timeval *points)
 {
 	pthread_mutex_lock(&seats->t_pfork);
 	gettimeofday(&points[BREAK], NULL);
+	printf(FORKING,
+		micro_to_milli(difference(seats->rules->the_time,
+				points[BREAK])), seats->id);
 	if (*seats->status == 0)
 	{
 		pthread_mutex_unlock(&seats->t_pfork);
 		return (1);
 	}
-	printf(FORKING,
-		micro_to_milli(difference(seats->rules->the_time,
-				points[BREAK])), seats->id);
 	return (0);
 }
 
 int	take_the_second_fork(t_seats *seats, t_timeval *points)
 {
-	if (seats == seats->right)
-		usleep(seats->rules->act[DYING]);
-	else
+	if (seats != seats->right)
 		pthread_mutex_lock(&seats->right->t_pfork);
+	else
+		usleep(seats->rules->act[DYING]);
 	gettimeofday(&points[BREAK], NULL);
 	return (0);
 }

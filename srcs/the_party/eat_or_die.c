@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   eat_or_die.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:33:25 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 03:23:47 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 18:50:48 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ uint64_t	time_hungry(t_seats *seats, t_timeval *points)
 	return (hungry);
 }
 
-static int	that_was_enough(t_seats *seats, t_timeval *points)
+static int	that_was_enough(t_seats *seats)
 {
 	if (seats->eat[EATEN] == seats->eat[LIMIT])
 	{
@@ -51,7 +51,7 @@ int	died_of_hungry(t_seats *seats, t_timeval *points, uint64_t waited)
 	{
 		*seats->status = 0;
 		release_the_forks(seats);
-		usleep(3);
+		usleep(8);
 		printf(DIED,
 			micro_to_milli(difference(seats->rules->the_time,
 					points[BREAK])), seats->id);
@@ -67,7 +67,7 @@ int	eating_time(t_seats *seats, t_timeval *points)
 				points[BREAK])), seats->id);
 	usleep(seats->rules->act[EATTT]);
 	seats->eat[EATEN]++;
-	if (that_was_enough(seats, points))
+	if (that_was_enough(seats))
 		return (1);
 	return (0);
 }

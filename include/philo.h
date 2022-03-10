@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 02:33:14 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 11:25:48 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 16:15:20 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ typedef struct timeval	t_timeval;
 ** index of the actions of each filosopher
 */
 
-# define DIED "\e\001\003[0;91m\002 %6lu \t%-15d is died\n"
-# define EATING "\e\001\003[0;93m\002 %6lu \t%-15d is eating\n"
-# define SLEEPING "\e\001\003[0;94m\002 %6lu \t%-15d is sleeping\n"
-# define THINKING "\e\001\003[0;95m\002 %6lu \t%-15d is thiking\n"
-# define FORKING "\e\001\003[0;97m\002 %6lu \t%-15d has taken a fork\n"
+# define DIED "\e\001\003[0;91m\002 %6lu \t%-15d is died\001\033[0m\002\n"
+# define EATING "\e\001\003[0;93m\002 %6lu \t%-15d is eating\001\033[0m\002\n"
+# define SLEEPING "\e\001\003[0;94m\002 %6lu \t%-15d is sleeping\001\033[0m\002\n"
+# define THINKING "\e\001\003[0;95m\002 %6lu \t%-15d is thiking\001\033[0m\002\n"
+# define FORKING "\e\001\003[0;97m\002 %6lu \t%-15d has taken a fork\001\033[0m\002\n"
 
 # define LIMIT 0
 # define EATEN 1
