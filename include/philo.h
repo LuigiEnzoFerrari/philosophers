@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 02:33:14 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 02:40:24 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 03:34:50 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ typedef struct timeval	t_timeval;
 /*
 ** index of the actions of each filosopher
 */
+
+# define DIED "\e\001\003[0;91m\002 %6lu \t%-15d IS DIED\n"
+# define EATING "\e\001\003[0;93m\002 %6lu \t%-15d is eating\n"
+# define SLEEPING "\e\001\003[0;94m\002 %6lu \t%-15d is sleeping\n"
+# define THINKING "\e\001\003[0;95m\002 %6lu \t%-15d is thiking\n"
+# define FORKING "\e\001\003[0;97m\002 %6lu \t%-15d has taken a fork\n"
 
 # define LIMIT 0
 # define EATEN 1
@@ -57,6 +63,8 @@ typedef struct s_seats
 	struct s_seats	*right;
 	struct s_seats	*left;
 }	t_seats;
+
+uint64_t	my_strtoul(const char *nptr);
 
 t_seats		*init_seat(void);
 void		add_seat_left(t_seats **seat);

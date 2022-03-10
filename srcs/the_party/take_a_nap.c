@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:33:22 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 02:36:51 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 03:19:08 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	nap_time(t_seats *seats, t_timeval *points)
 	gettimeofday(&points[LAST_EAT], NULL);
 	if (*seats->status == 0)
 		return (1);
-	printf(" %6lu \t%-15d is sleeping\n",
+	printf(SLEEPING,
 		micro_to_milli(difference(seats->rules->the_time,
 				points[LAST_EAT])), seats->id);
 	time_to_waist(seats->rules->act[SLEEP]);
@@ -35,7 +35,7 @@ int	sleeping_and_thinking(t_seats *seats, t_timeval *points)
 	gettimeofday(&points[BREAK], NULL);
 	if (*seats->status == 0)
 		return (1);
-	printf(" %6lu \t%-15d is thiking\n",
+	printf(THINKING,
 		micro_to_milli(difference(seats->rules->the_time,
 				points[BREAK])), seats->id);
 	return (0);

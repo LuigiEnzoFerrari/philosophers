@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:33:25 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 02:36:51 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 03:23:47 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ int	died_of_hungry(t_seats *seats, t_timeval *points, uint64_t waited)
 	{
 		*seats->status = 0;
 		release_the_forks(seats);
-		printf(" %6lu \t%-15d IS DIED\n",
+		usleep(3);
+		printf(DIED,
 			micro_to_milli(difference(seats->rules->the_time,
 					points[BREAK])), seats->id);
 		return (1);
@@ -61,7 +62,7 @@ int	died_of_hungry(t_seats *seats, t_timeval *points, uint64_t waited)
 
 int	eating_time(t_seats *seats, t_timeval *points)
 {
-	printf(" %6lu \t%-15d is eating\n",
+	printf(EATING,
 		micro_to_milli(difference(seats->rules->the_time,
 				points[BREAK])), seats->id);
 	usleep(seats->rules->act[EATTT]);

@@ -6,7 +6,7 @@
 /*   By: lenzo-pe <lenzo-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:33:17 by lenzo-pe          #+#    #+#             */
-/*   Updated: 2022/03/10 02:36:51 by lenzo-pe         ###   ########.fr       */
+/*   Updated: 2022/03/10 03:19:49 by lenzo-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	take_the_first_fork(t_seats *seats, t_timeval *points)
 		pthread_mutex_unlock(&seats->t_pfork);
 		return (1);
 	}
-	printf(" %6lu \t%-15d has taken a fork\n",
+	printf(FORKING,
 		micro_to_milli(difference(seats->rules->the_time,
 				points[BREAK])), seats->id);
 	return (0);
