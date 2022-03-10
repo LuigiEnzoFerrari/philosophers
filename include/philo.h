@@ -25,25 +25,24 @@ typedef struct timeval timeval;
 # define THINK 2
 # define DYING 3
 
+# define BREAK 0
+# define LAST_EAT 1
+
+typedef struct s_rules {
+    timeval         the_time;
+	uint64_t		act[4];
+}	t_rules;
+
 typedef struct	s_seats {
 	int				id; //temp just to know which pthread
 	size_t          eat[2];
 	int             *status;
-	timeval         ctime;
-	uint64_t		act[4];
+	t_rules			*rules;
 	pfork			pfork;
 	philo_id		philo;
 	struct	s_seats	*right; // next
 	struct	s_seats	*left; // prev // It's possible that I won't need this one.
 }	t_seats;
-
-typedef struct  s_table {
-	int			status;
-	timeval		the_time;
-	uint64_t	act_time[4];
-	size_t		n_seats;
-	t_seats 	*seats;
-}	t_table;
 
 t_seats	*init_seat(void);
 void	add_seat_left(t_seats **seat);

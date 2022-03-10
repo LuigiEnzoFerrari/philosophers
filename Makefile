@@ -1,11 +1,12 @@
 NAME=philo
 
 SRCS=srcs/list.c srcs/convert_time.c
+SANIT = -fsanitize=address 
 
 all: $(NAME)
 
 $(NAME): main.c $(SRCS)
-	clang  -g -fsanitize=address main.c $(SRCS) -lpthread -I include/ -o $@
+	clang -g main.c $(SRCS) -lpthread -I include/ -o $@
 
 run:
 	bash philo
