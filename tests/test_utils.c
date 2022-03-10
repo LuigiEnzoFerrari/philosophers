@@ -2,27 +2,53 @@
 #include "philo.h"
 
 MU_TEST(test_my_abs_with_negative) {
-    uint64_t microsec;
+	uint64_t value;
 
-    microsec = my_abs(-420000000);
+	value = my_abs(-420000000);
 
-	mu_assert(microsec == 420000000, "expected 420000000");
+	mu_assert(value == 420000000, "expected 420000000");
 }
 
 MU_TEST(test_my_abs_with_positive) {
-    uint64_t millisec;
+	uint64_t value;
 
-    millisec = my_abs(420000000);
+	value = my_abs(420000000);
 
-	mu_assert(millisec == 420000000, "expected 420000000");
+	mu_assert(value == 420000000, "expected 420000000");
 }
 
 MU_TEST(test_my_abs_with_zero) {
-    uint64_t second;
+	uint64_t value;
 
-    second = my_abs(0);
+	value = my_abs(0);
 
-	mu_assert(second == 0, "expected 0");
+	mu_assert(value == 0, "expected 0");
+}
+
+MU_TEST(test_my_strtoul_with_zero) {
+	uint64_t value;
+
+	value = my_strtoul("0");
+
+	mu_assert(value == (uint64_t)0, "expected 0");
+}
+
+
+MU_TEST(test_my_strtoul_with_big_positive) {
+	uint64_t value;
+
+	value = my_strtoul("4294967295");
+
+	mu_assert(value == (uint64_t)4294967295, "expected 4294967295");
+}
+
+
+MU_TEST(test_my_strtoul_with_big_negative) {
+	uint64_t value;
+
+	value = my_strtoul("-4294967295");
+
+	mu_assert(value == (uint64_t)-4294967295, "expected -4294967295");
 }
 
 MU_TEST_SUITE(test_suite) {
@@ -30,6 +56,9 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_my_abs_with_negative);
 	MU_RUN_TEST(test_my_abs_with_positive);
 	MU_RUN_TEST(test_my_abs_with_zero);
+	MU_RUN_TEST(test_my_strtoul_with_big_negative);
+	MU_RUN_TEST(test_my_strtoul_with_big_positive);
+	MU_RUN_TEST(test_my_strtoul_with_zero);
 }
 
 int main (void)
